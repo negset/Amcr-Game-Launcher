@@ -1,17 +1,17 @@
 package amcr.gamelauncher
 
-import javax.swing.JFrame
 import javax.swing.ImageIcon
+import javax.swing.JFrame
 
 fun main() {
     object : JFrame() {
         init {
             title = "Game Launcher"
             iconImage = ImageIcon("res/icon.png").image
+            defaultCloseOperation = EXIT_ON_CLOSE
             isResizable = false
             contentPane.add(MyPanel())
             pack()
-            defaultCloseOperation = EXIT_ON_CLOSE
             isVisible = true
         }
     }

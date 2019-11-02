@@ -7,7 +7,7 @@ import javax.sound.sampled.Line
 import javax.sound.sampled.LineEvent
 
 class Wave(path: String) {
-    private var clips = Array<Clip?>(10) { null }
+    private var clips = arrayOfNulls<Clip?>(10)
     private var index = 0
 
     init {

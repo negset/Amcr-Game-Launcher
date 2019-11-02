@@ -10,9 +10,9 @@ const val WINDOW_WIDTH = 1200
 const val WINDOW_HEIGHT = 800
 
 val isWindows = System.getProperty("os.name").toLowerCase()
-        .startsWith("windows")
+    .startsWith("windows")
 val isMacOS = System.getProperty("os.name").toLowerCase()
-        .startsWith("mac")
+    .startsWith("mac")
 
 fun getImage(path: String): Image {
     var img: Image? = null
@@ -28,8 +28,8 @@ fun getImage(path: String): Image {
 }
 
 fun Int.approach(goal: Int, delta: Int): Int =
-        when {
-            abs(this - goal) < delta -> goal
-            this < goal -> this + delta
-            else -> this - delta
-        }
+    when {
+        abs(this - goal) < delta -> goal
+        this < goal -> this + delta
+        else -> this - delta
+    }

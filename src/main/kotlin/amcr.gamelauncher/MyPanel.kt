@@ -9,8 +9,10 @@ import javax.swing.JPanel
 
 class MyPanel : JPanel(), Runnable {
     private val keyInput = KeyInput()
-    private val myFont = Font.createFont(Font.TRUETYPE_FONT,
-            File("res/font.ttf")).deriveFont(24f)
+    private val myFont = Font.createFont(
+        Font.TRUETYPE_FONT,
+        File("res/font.ttf")
+    ).deriveFont(24f)
 
     private val cards: Array<Card>
     private var cursor = 0
@@ -24,8 +26,11 @@ class MyPanel : JPanel(), Runnable {
         isFocusable = true
         addKeyListener(keyInput)
 
-        val toml = Toml().read(InputStreamReader(
-                FileInputStream("config.toml"), "UTF-8"))
+        val toml = Toml().read(
+            InputStreamReader(
+                FileInputStream("config.toml"), "UTF-8"
+            )
+        )
         val config = toml.to(Config::class.java)
 
         cards = Array(config.games.size) {
@@ -54,8 +59,10 @@ class MyPanel : JPanel(), Runnable {
         super.paintComponent(g)
 
         (g as Graphics2D).run {
-            setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-                    RenderingHints.VALUE_TEXT_ANTIALIAS_ON)
+            setRenderingHint(
+                RenderingHints.KEY_TEXT_ANTIALIASING,
+                RenderingHints.VALUE_TEXT_ANTIALIAS_ON
+            )
             font = myFont
 
             color = Color(205, 235, 255)

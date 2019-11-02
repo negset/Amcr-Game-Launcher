@@ -15,10 +15,10 @@ data class Config(var games: Array<Game>) {
 }
 
 data class Game(
-        var title: String = "no data",
-        var author: String = "no data",
-        var description: String = "no data",
-        var image: String? = null,
-        var cmdWin: String = "",
-        var cmdMac: String = ""
+    var title: String = "no data",
+    var author: String = "no data",
+    var description: String = "no data",
+    var image: String? = null,
+    var cmdWin: String = "",
+    var cmdMac: String = ""
 )

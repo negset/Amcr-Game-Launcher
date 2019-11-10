@@ -1,16 +1,22 @@
 package amcr.gamelauncher
 
-data class Config(var games: Array<Game>) {
+data class Config(
+    var windowTitle: String = "Game Launcher",
+    var games: Array<Game>
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
         other as Config
+        if (windowTitle != other.windowTitle) return false
         if (!games.contentEquals(other.games)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return games.contentHashCode()
+        var result = windowTitle.hashCode()
+        result = 31 * result + games.contentHashCode()
+        return result
     }
 }
 

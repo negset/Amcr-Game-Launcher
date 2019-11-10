@@ -1,14 +1,11 @@
 package amcr.gamelauncher
 
-import com.moandjiezana.toml.Toml
 import javafx.scene.media.AudioClip
 import java.awt.*
 import java.io.File
-import java.io.FileInputStream
-import java.io.InputStreamReader
 import javax.swing.JPanel
 
-class MyPanel : JPanel(), Runnable {
+class MyPanel(config: Config) : JPanel(), Runnable {
     private val keyInput = KeyInput()
     private val myFont = Font.createFont(
         Font.TRUETYPE_FONT,
@@ -29,13 +26,6 @@ class MyPanel : JPanel(), Runnable {
         preferredSize = Dimension(WINDOW_WIDTH, WINDOW_HEIGHT)
         isFocusable = true
         addKeyListener(keyInput)
-
-        val toml = Toml().read(
-            InputStreamReader(
-                FileInputStream("config.toml"), "UTF-8"
-            )
-        )
-        val config = toml.to(Config::class.java)
 
         cards = Array(config.games.size) {
             Card(config.games[it]).apply {

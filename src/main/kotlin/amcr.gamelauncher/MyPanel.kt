@@ -79,7 +79,6 @@ class MyPanel : JPanel(), Runnable {
     }
 
     private fun update() {
-        keyInput.update()
 
         cards.withIndex().forEach { (i, card) ->
             card.refPos = i - cursor
@@ -87,17 +86,17 @@ class MyPanel : JPanel(), Runnable {
         }
 
         when {
-            keyInput.up -> {
+            keyInput.upPressed -> {
                 cursor--
                 cursor = (cursor + cards.size) % cards.size
                 select.play()
             }
-            keyInput.down -> {
+            keyInput.downPressed -> {
                 cursor++
                 cursor = (cursor + cards.size) % cards.size
                 select.play()
             }
-            keyInput.enter -> {
+            keyInput.enterJustPressed -> {
                 enter.play()
                 val r = Runtime.getRuntime()
                 when {

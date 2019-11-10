@@ -4,35 +4,38 @@ import java.awt.event.KeyAdapter
 import java.awt.event.KeyEvent
 
 class KeyInput : KeyAdapter() {
-    var enter = false
-    var up = false
-    var down = false
-    private var lastEnter = false
-    private var lastUp = false
-    private var lastDown = false
+    private var enter = 0
+    private var up = 0
+    private var down = 0
+    val enterJustPressed: Boolean
+        get() {
+            if (enter > 0) enter++
+            return enter == 2
+        }
+    val upPressed: Boolean
+        get() {
+            if (up > 0) up++
+            return up == 2 || up > 20 && up % 5 == 0
+        }
+    val downPressed: Boolean
+        get() {
+            if (down > 0) down++
+            return down == 2 || down > 20 && down % 5 == 0
+        }
 
     override fun keyPressed(e: KeyEvent?) {
         when (e?.keyCode) {
-            KeyEvent.VK_ENTER -> enter = true
-            KeyEvent.VK_UP -> up = true
-            KeyEvent.VK_DOWN -> down = true
+            KeyEvent.VK_ENTER -> if (enter == 0) enter = 1
+            KeyEvent.VK_UP -> if (up == 0) up = 1
+            KeyEvent.VK_DOWN -> if (down == 0) down = 1
         }
     }
 
     override fun keyReleased(e: KeyEvent?) {
         when (e?.keyCode) {
-            KeyEvent.VK_ENTER -> enter = false
-            KeyEvent.VK_UP -> up = false
-            KeyEvent.VK_DOWN -> down = false
+            KeyEvent.VK_ENTER -> enter = 0
+            KeyEvent.VK_UP -> up = 0
+            KeyEvent.VK_DOWN -> down = 0
         }
-    }
-
-    fun update() {
-        if (lastEnter) enter = false
-        if (lastUp) up = false
-        if (lastDown) down = false
-        lastEnter = enter
-        lastUp = up
-        lastDown = down
     }
 }

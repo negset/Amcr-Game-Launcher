@@ -17,6 +17,9 @@ class MyPanel : JPanel(), Runnable {
 
     private val cards: Array<Card>
     private var cursor = 0
+        set(value) {
+            field = (value + cards.size) % cards.size
+        }
 
     private val logo = getImage("res/logo.png")
     private val select = AudioClip(File("res/select.wav").toURI().toString())
@@ -88,12 +91,10 @@ class MyPanel : JPanel(), Runnable {
         when {
             keyInput.upPressed -> {
                 cursor--
-                cursor = (cursor + cards.size) % cards.size
                 select.play()
             }
             keyInput.downPressed -> {
                 cursor++
-                cursor = (cursor + cards.size) % cards.size
                 select.play()
             }
             keyInput.enterJustPressed -> {

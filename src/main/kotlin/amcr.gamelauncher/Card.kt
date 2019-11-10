@@ -2,6 +2,7 @@ package amcr.gamelauncher
 
 import java.awt.Color
 import java.awt.Graphics2D
+import kotlin.math.abs
 import kotlin.math.max
 
 class Card(val game: Game) {
@@ -38,6 +39,7 @@ class Card(val game: Game) {
 
     fun update() {
         x = x.approach(if (active) 600 else 650, 10)
-        y = y.approach(200 + refPos * 150, 30)
+        val ay = 200 + refPos * 150
+        y = y.approach(ay, abs(ay - y) / 10 + 15)
     }
 }

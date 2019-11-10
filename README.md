@@ -1,10 +1,12 @@
 # Amcr Game Launcher
 
-### config.toml
+### 設定
 
 ランチャー本体と同じ階層にconfig.tomlを作成し，以下のような記述を行う．
 
 ```toml
+windowTitle = "Amusement Creators: sohosai 2019"
+
 [[games]]
 title = "Cat Bacuum Cat Flying"
 author = "wraikny"
@@ -21,7 +23,7 @@ cmdMac = "java -jar \"games/DOT HOPPER/DOT HOPPER.jar\""
 
 ```
 
-### ビルド方法
+### ビルド
 
 ルートディレクトリでターミナルを開き，以下のコマンドを叩く．
 
@@ -29,4 +31,4 @@ cmdMac = "java -jar \"games/DOT HOPPER/DOT HOPPER.jar\""
 ./gradlew build
 ```
 
-/build/libsに.jarファイルが生成される．
+/build/libsにjarファイルが生成される．

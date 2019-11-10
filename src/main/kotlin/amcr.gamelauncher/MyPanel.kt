@@ -1,6 +1,7 @@
 package amcr.gamelauncher
 
 import com.moandjiezana.toml.Toml
+import javafx.scene.media.AudioClip
 import java.awt.*
 import java.io.File
 import java.io.FileInputStream
@@ -18,8 +19,8 @@ class MyPanel : JPanel(), Runnable {
     private var cursor = 0
 
     private val logo = getImage("res/logo.png")
-    private val select = Wave("res/select.wav")
-    private val enter = Wave("res/enter.wav")
+    private val select = AudioClip(File("res/select.wav").toURI().toString())
+    private val enter = AudioClip(File("res/enter.wav").toURI().toString())
 
     init {
         preferredSize = Dimension(WINDOW_WIDTH, WINDOW_HEIGHT)

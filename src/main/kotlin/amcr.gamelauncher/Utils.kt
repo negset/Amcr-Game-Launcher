@@ -14,7 +14,7 @@ val isWindows = System.getProperty("os.name").toLowerCase()
 val isMacOS = System.getProperty("os.name").toLowerCase()
     .startsWith("mac")
 
-fun getImage(path: String): Image {
+fun image(path: String): Image {
     var img: Image? = null
     try {
         FileInputStream(path).let {

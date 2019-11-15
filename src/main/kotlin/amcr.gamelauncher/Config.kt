@@ -1,7 +1,7 @@
 package amcr.gamelauncher
 
 data class Config(
-    var windowTitle: String = "Game Launcher",
+    var windowTitle: String?,
     var games: Array<Game>
 ) {
     override fun equals(other: Any?): Boolean {

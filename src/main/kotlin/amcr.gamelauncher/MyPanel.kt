@@ -18,7 +18,7 @@ class MyPanel(config: Config) : JPanel(), Runnable {
             field = (value + cards.size) % cards.size
         }
 
-    private val logo = getImage("res/logo.png")
+    private val logo = image("res/logo.png")
     private val select = AudioClip(File("res/select.wav").toURI().toString())
     private val enter = AudioClip(File("res/enter.wav").toURI().toString())
 
@@ -72,7 +72,6 @@ class MyPanel(config: Config) : JPanel(), Runnable {
     }
 
     private fun update() {
-
         cards.withIndex().forEach { (i, card) ->
             card.refPos = i - cursor
             card.update()

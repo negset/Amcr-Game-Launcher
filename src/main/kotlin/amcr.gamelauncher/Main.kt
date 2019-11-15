@@ -7,16 +7,15 @@ import javax.swing.ImageIcon
 import javax.swing.JFrame
 
 fun main() {
-    val toml = Toml().read(
+    val config = Toml().read(
         InputStreamReader(
             FileInputStream("config.toml"), "UTF-8"
         )
-    )
-    val config = toml.to(Config::class.java)
+    ).to(Config::class.java)
 
     object : JFrame() {
         init {
-            title = config.windowTitle
+            title = config.windowTitle ?: "Game Launcher"
             iconImage = ImageIcon("res/icon.png").image
             defaultCloseOperation = EXIT_ON_CLOSE
             isResizable = false

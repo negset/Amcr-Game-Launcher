@@ -11,8 +11,8 @@ class Card(val game: Game) {
     var refPos = 0
     private val active
         get() = refPos == 0
-    private val bg = getImage("res/card.png")
-    private val img = game.image?.let { getImage(it) }
+    private val bg = image("res/card.png")
+    private val img = game.image?.let { image(it) }
 
     fun draw(g: Graphics2D) {
         g.run {
